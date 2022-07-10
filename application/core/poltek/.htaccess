@@ -1,0 +1,15 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/system.*
+RewriteRule ^(.*)$ index.php?/$1 [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ index.php?/$1 [L]
+
+
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteCond %{HTTP_HOST} ^poltekkaltara\.ac\.id$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.poltekkaltara\.ac\.id$
+RewriteRule ^/?$ "https\:\/\/poltekkaltara\.ac\.id\/" [R=301,L]
+
