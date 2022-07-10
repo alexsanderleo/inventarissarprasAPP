@@ -5,12 +5,21 @@ class Pinjam_model extends CI_Model
 {
 
     //ini memfungsikan model memberitahu controler supplier.php bahwa get_data telah di difungsikan dengan variabel table
-    public function get_data($table)
+    public function joinanketoknodb(){
     {
-        return $this->db->get($table);
-    }
+        $this->db->select('*');
+        $this->db->from('tabel_pinjam');
+        $this->db->join('tabel_barang','tabel_barang.id_barang = tabel_pinjam.id_barang');
+        //dari  tabel  pinjam, gabung atau joinkan dengan id barang yang sama
+        //baru  diambil field/kolom   sesuai  keinginan
+        //podo    karo 
+        //SELECT * FROM tabel_pinjam,tabel_barang where id_barang=id_barang
+        
+        return $this->db->get('');
+    }    
+}
 
-    public function insert_data($data, $table)
+public function insert_data($data, $table)
     {
         $this->db->insert($table, $data);
     }

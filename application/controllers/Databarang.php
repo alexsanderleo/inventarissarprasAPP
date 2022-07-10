@@ -50,7 +50,7 @@ class Databarang extends CI_Controller
             $this->tambah();
         } else {
             $data = array(
-                'nama' => $this->input->post('nama'),
+                'nama' => $this->input->post('nama'),//mlebu array ora oleh underscore nek function e  bedo  baru  ok
                 'spesifikasi' => $this->input->post('spesifikasi'),
                 'lokasi' => $this->input->post('lokasi'),
                 'jumlah' => $this->input->post('jumlah'),
@@ -60,9 +60,10 @@ class Databarang extends CI_Controller
                 'keterangan' => $this->input->post('keterangan'),
                 'tanggal' => $this->input->post('tanggal'),
             );
-            $this->databarang_model->insert_data($data, 'tabel_barang');//namadatabasee
-            $this->session->set_flashdata(
-                'pesan',
+            $this->databarang_model->insert_data($data, 'tabel_barang');//jenengdb
+            $this->session->set_flashdata(//Asline pinuk nek mood e lagi pinuk,
+                
+                'pesan',//nek roso roso yo PT.SEMOYO
                 '<div class="alert alert-warning alert-dismissible fade show" role="alert">
             <strong>Data wis iso ditambah!</strong>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">

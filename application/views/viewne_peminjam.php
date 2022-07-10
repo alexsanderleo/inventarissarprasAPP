@@ -7,25 +7,25 @@
         <div class="modal-dialog">
           <div class="modal-content bg-primary">
             <div class="modal-header">
-              <h4 class="modal-title">Form data supplier</h4>
+              <h4 class="modal-title">Tambah data peminjam</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-            <form action="<?= base_url('datasupplier/tambah_supplier') ?>" method="POST">
+            <form action="<?= base_url('datapinjam/tambah_peminjam') ?>" method="POST">
         <div class="form-group">
-            <label>Nama supplier</label>
+            <label>Nama peminjam</label>
             <input type="text" name="nama" class="form-control">
             <?= form_error('nama', '<div class="text-small text-danger">', '</div>') ?>
         </div>
         <div class="form-group">
-            <label>alamat supplier</label>
+            <label>barang yg dipinjam</label>
             <input type="text" name="alamat" class="form-control">
             <?= form_error('nama', '<div class="text-small text-danger">', '</div>') ?>
         </div>
         <div class="form-group">
-            <label>telephone</label>
+            <label>jumlahpinjam</label>
             <input type="text" name="telfon" class="form-control">
             <?= form_error('nama', '<div class="text-small text-danger">', '</div>') ?>
         </div>
@@ -71,7 +71,7 @@
                     <tr class="text-center">
                      <!-- iniadalah boostrap 4 panggil class nya kemudian centerkan textnya /.card-header -->
                      <th>No</th>
-                     <th>NAMA YANG EMINJAM</th>
+                     <th>NAMA YANG MEMINJAM</th>
                      <th>NAMA BARANG</th>
                      <th>TOTAL PINJAM UNIT</th>
                      <th>TANGGAL PINJAM</th>
@@ -83,6 +83,7 @@
                     </tr>
                   </thead>
                   <tbody>
+                    
                    <?php $No = 1;
                 foreach ($pinjem as $darang) : ?>
                  <!-- foreach perulangan , darang ini bebaswae karena hanya penamaan  -->
@@ -92,7 +93,7 @@
                          <!-- iniadalah boostrap 4 panggil class nya kemudian centerkan textnya /.card-header -->
                          <td><?= $No++ ?> </td>
                          <td><?= $darang->namaygpinjam ?> </td>
-                         <td><?= $darang->namabarangygdipinjam ?></td>
+                         <td><?= $darang->nama ?></td>
                          <td><?= $darang->totalpinjambarangunit?></td>
                          <td><?= $darang->tanggalpinjam ?> </td>
                          <td><?= $darang->tanggaldikembalikan ?></td>
@@ -117,3 +118,72 @@
      <!--======================================= model dari bootstrap ===============================================-->
      <!-- Button trigger modal -->
 
+
+
+     <!-- Modal Edit-->
+     <?php foreach ($pinjem as $darang) : ?>
+         <div class="modal fade" id="edit<?= $darang->id_pinjam ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+             <div class="modal-dialog">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <h5 class="modal-title" id="exampleModalLabel">Edit barang</h5>
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                         </button>
+                     </div>
+                     <div class="modal-body">
+                         <form action="<?= base_url('datapinjam/edit/' . $darang->id_pinjam) ?>" method="POST">
+                             <div class="form-group">
+                                 <label>Nama peminjam</label>
+                                 <input type="text" name="nama" class="form-control" value="<?= $darang->namaygpinjam ?>">
+                                 <?= form_error('nama', '<div class="text-small text-danger">', '</div>') ?>
+                             </div>
+                             <div class="form-group">
+                                 <label>barang yang dipinjam</label>
+                                 <input type="text" name="nama" class="form-control" value=" <?= $darang->nama ?>">
+                                 <?= form_error('nama', '<div class="text-small text-danger">', '</div>') ?>
+                             </div>
+                             <div class="form-group">
+                                 <label>total pinjam</label>
+                                 <input type="text" name="totalpinjambarangunit" class="form-control" value=" <?= $darang->totalpinjambarangunit ?>">
+                                 <?= form_error('nama', '<div class="text-small text-danger">', '</div>') ?>
+                             </div>
+                             <div class="form-group">
+                                 <label>tanggal pinjam</label>
+                                 <input type="date" name="tanggalpinjam" class="form-control" value=" <?= $darang->tanggalpinjam ?>">
+                                 <?= form_error('nama', '<div class="text-small text-danger">', '</div>') ?>
+                             </div>
+                             <div class="form-group">
+                                 <label>tanggal dikembalikan</label>
+                                 <input type="date" name="tanggaldikembalikan" class="form-control" value=" <?= $darang->tanggaldikembalikan ?>">
+                                 <?= form_error('nama', '<div class="text-small text-danger">', '</div>') ?>
+                             </div>
+                             <div class="form-group">
+                                 <label>kondisi barang pinjam</label>
+                                 <input type="text" name="kondisibarangpinjam" class="form-control" value=" <?= $darang->kondisibarangpinjam ?>">
+                                 <?= form_error('nama', '<div class="text-small text-danger">', '</div>') ?>
+                             </div>
+                             <div class="form-group">
+                                 <label>status barang</label>
+                                 <input type="text" name="pinjamstatus" class="form-control" value=" <?= $darang->pinjamstatus ?>">
+                                 <?= form_error('nama', '<div class="text-small text-danger">', '</div>') ?>
+                             </div>
+                         
+
+                             <div class="modal-footer">
+                                 <button type="submit" class="btn btn-primary btn-sm" <i class="fas fa-save"></i>>Simpan</button>
+                                 <button type="reset" class="btn btn-danger btn-sm" <i class="fas fa-trash"></i>>reset</button>
+                             </div>
+
+
+           
+
+
+                         </form>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     <?php endforeach ?>
+
+    

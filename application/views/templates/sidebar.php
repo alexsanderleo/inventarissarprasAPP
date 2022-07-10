@@ -85,7 +85,7 @@
 
                          <!-- menambahkan nav baru li diahiri </li -->
                          <li class="nav-item">
-                            <a href="<?= base_url('Datapeminjam') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Datapeminjam') echo 'active' ?>">
+                            <a href="<?= base_url('Datapinjam') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Datapeminjam') echo 'active' ?>">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>Data Peminjam</p>
                             </a>
