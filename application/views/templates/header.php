@@ -20,4 +20,11 @@
     <link rel="stylesheet" href="<?= base_url('assets/template') ?>/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+ 
+  <link rel="stylesheet" href="<?php  base_url('assets/template');?>/plugins/datepicker/datepicker3.css">
+
+  <link rel="stylesheet" href="<?php base_url('assets/template');?>/dist/css/skins/_all-skins.min.css">
 </head>

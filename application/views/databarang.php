@@ -1,14 +1,21 @@
  <?= $this->session->flashdata('pesan'); //menambahkan pesan
     ?>
+    
  <div class="card">
      <div class="card-header">
          <a href="<?= base_url('databarang/tambah_aksi') ?>" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Tambah barang</a>
      </div>
+
+  
      <!-- /.card-header -->
-     <div class="card-body">
-         <table id="#example1" class="table table-bordered table-striped">
-             <thead>
-                 <tr class="text-center">
+  <!-- /.card-header -->
+  
+  <div class="card">
+              <table id="example1" class="table table-bordered">
+              <thead>
+                    
+                    <tr>
+                        
                      <!-- iniadalah boostrap 4 panggil class nya kemudian centerkan textnya /.card-header -->
                      <th>No</th>
                      <th>NAMA</th>
@@ -21,15 +28,22 @@
                      <th>KETERANGAN</th>
                      <th>TANGGAL</th>
                      <th>Pilih Aksi</th>
-                 </tr>
-             </thead>
-             <tbody>
+</tr>
+                        
+                    
+                    
+</div>
+                  </thead>
+                 
+                  <tbody>
+
+
              <?php $No = 1;
                 foreach ($databarang as $darang) : ?>
                  <!-- foreach perulangan , darang ini bebaswae karena hanya penamaan  -->
                  <!-- databarang ditampilkan dari controler  -->
                  
-                     <tr class="text-center">
+                 <tr>
                          <!-- iniadalah boostrap 4 panggil class nya kemudian centerkan textnya /.card-header -->
                          <td><?= $No++ ?> </td>
                          <td><?= $darang->nama ?> </td>
@@ -41,18 +55,19 @@
                          <td><?= $darang->kondisi ?></td>
                          <td><?= $darang->keterangan ?></td>
                          <td><?= $darang->tanggal ?></td>
-                         <td>
+                         <td>                
                              <button data-toggle="modal" data-target="#edit<?= $darang->id_barang ?>" class="btn btn-warning btn-sm"> <i class="fas fa-edit"></i></button>
                              <a href="<?= base_url('databarang/delete/') . $darang->id_barang ?>" class=" btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin menghapus data ini ?')"> <i class="fas fa-trash"></i></a>
                              <!-- /.diatas adalah kodingan nampilne btn warning karo danger -->
-                         </td>
-                         <!-- /.diatas adalah kodingan menampilkan data sesuai tabel get model data barang -->
-                     </tr>
-                
+                             </td>
+                </tr>
              <?php endforeach ?>
+             </table>
              </tbody>
-         </table>
-     </div>
+                
+              </div>
+            
+            
      <!--======================================= model dari bootstrap ===============================================-->
      <!-- Button trigger modal -->
 
@@ -110,10 +125,14 @@
                                  <input type="text" name="keterangan" class="form-control" value=" <?= $darang->keterangan ?>">
                                  <?= form_error('nama', '<div class="text-small text-danger">', '</div>') ?>
                              </div>
-                             <div class="form-group">
+                           
+                            
+<!-----------------------------------------DATE  TIME PICKER DURUNG  SEMPURNA KETOOK E----------------->
+<div class="form-group">
                                  <label>tanggal</label>
-                                 <input type="text" name="tanggal" class="form-control" value=" <?= $darang->tanggal ?>">
+                                 <input type="date" name="tanggal" class="form-control" value=" <?= $darang->tanggal ?>">
                                  <?= form_error('nama', '<div class="text-small text-danger">', '</div>') ?>
+<!-----------------------------------------ENDDD  DATE  TIME PICKER DURUNG  SEMPURNA KETOOK E----------------->
 
                              </div>
                              <div class="modal-footer">

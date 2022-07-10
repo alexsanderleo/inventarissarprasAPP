@@ -42,7 +42,7 @@
         </div>
         <div class="form-group">
             <label>tanggal</label>
-            <input type="text" name="tanggal" class="form-control">
+            <input type="date" name="tanggal" class="form-control">
             <?= form_error('nama', '<div class="text-small text-danger">', '</div>') ?>
         </div>
         <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i>Simpan</button>
